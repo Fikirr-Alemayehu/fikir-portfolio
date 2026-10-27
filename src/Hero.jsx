@@ -33,7 +33,7 @@ function Hero() {
                 <div className="hero-image">
                     <div className="profile-image-container">
                         <img
-                            src="/src/assets/profile.jpg"
+                            src="/src/assets/profile.png"
                             alt="Fikir Alemayehu"
                             className="profile-image"
                             onError={(e) => {
