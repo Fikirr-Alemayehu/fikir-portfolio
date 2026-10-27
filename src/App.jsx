@@ -4,9 +4,10 @@ import About from "./About";
 import Skills from "./Skills";
 import ProjectCard from "./ProjectCard";
 import projects from "./data/projects";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ContactForm from "./ContactForm";
 import Hero from "./Hero";
+import PlayfulIcon from "./PlayfulIcon";
 
 function App() {
   const [isDark, setIsDark] = useState(true);
@@ -14,6 +15,24 @@ function App() {
   const toggleTheme = () => {
     setIsDark(!isDark);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight * 0.85;
+        if (isVisible) {
+          section.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check on initial load
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div className={isDark ? "app theme-dark" : "app theme-light"}>
@@ -49,6 +68,8 @@ function App() {
       <footer>
         <p>© 2024 Fikir Alemayehu. All rights reserved.</p>
       </footer>
+
+      <PlayfulIcon />
     </div>
   );
 }
