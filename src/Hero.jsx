@@ -1,3 +1,5 @@
+import profileImage from "./assets/profile.png";
+
 function Hero() {
     return (
         <section id="home" className="hero">
@@ -33,7 +35,7 @@ function Hero() {
                 <div className="hero-image">
                     <div className="profile-image-container">
                         <img
-                            src="/src/assets/profile.png"
+                            src={profileImage}
                             alt="Fikir Alemayehu"
                             className="profile-image"
                             onError={(e) => {
