@@ -8,9 +8,13 @@ import { useState, useEffect } from "react";
 import ContactForm from "./ContactForm";
 import Hero from "./Hero";
 import PlayfulIcon from "./PlayfulIcon";
+import Stats from "./Stats";
+import Particles from "./Particles";
+import SocialLinks from "./SocialLinks";
 
 function App() {
   const [isDark, setIsDark] = useState(true);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const toggleTheme = () => {
     setIsDark(!isDark);
@@ -26,6 +30,12 @@ function App() {
           section.classList.add('visible');
         }
       });
+
+      // Calculate scroll progress
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      setScrollProgress(progress);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -36,9 +46,12 @@ function App() {
 
   return (
     <div className={isDark ? "app theme-dark" : "app theme-light"}>
+      <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }}></div>
       <NavBar isDark={isDark} toggleTheme={toggleTheme} />
 
       <Hero />
+
+      <Stats />
 
       <About />
 
@@ -67,9 +80,11 @@ function App() {
 
       <footer>
         <p>© 2024 Fikir Alemayehu. All rights reserved.</p>
+        <SocialLinks />
       </footer>
 
       <PlayfulIcon />
+      <Particles />
     </div>
   );
 }

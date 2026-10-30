@@ -13,20 +13,17 @@ function About() {
             <div className="about-content">
                 <div className="about-text">
                     <p>
-                        I am a software developer with experience building
-                        mobile applications, web applications, and enterprise
-                        systems.
+                        With experience in software development and enterprise systems, my work spans web applications, mobile solutions, and business software. My technical background includes React, Flutter, and ASP.NET Core, with an interest in building scalable, maintainable, and user-friendly applications.
                     </p>
 
-                    <p>
+                    {/* <p>
                         I work with Flutter, React, and ASP.NET Core, and I am
                         currently pursuing an MSc in Software Engineering.
-                    </p>
+                    </p> */}
 
                     {showMore && (
                         <p>
-                            I enjoy learning new technologies and developing
-                            practical solutions to real-world problems.
+                            Driven by curiosity and continuous improvement, I enjoy tackling technical challenges, translating requirements into effective solutions, and expanding my skills to keep pace with evolving technologies. Alongside my professional work, I am pursuing an MSc in Software Engineering to deepen my knowledge and strengthen my software engineering expertise.
                         </p>
                     )}
 

@@ -21,8 +21,14 @@ function PlayfulIcon() {
     };
 
     const handleCaught = () => {
-        setScore(score + 1);
+        setScore(prevScore => prevScore + 1);
         moveIcon();
+    };
+
+    const handleTouchStart = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        handleCaught();
     };
 
     // Auto-move occasionally
@@ -48,6 +54,7 @@ function PlayfulIcon() {
                 }}
                 onClick={handleClick}
                 onMouseEnter={handleCaught}
+                onTouchStart={handleTouchStart}
             >
                 🎯
             </div>

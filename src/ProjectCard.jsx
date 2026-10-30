@@ -1,7 +1,10 @@
+import { useTilt } from './useTilt';
 
 function ProjectCard(props) {
+    const { ref, style } = useTilt();
+
     return (
-        <article className="project-card">
+        <article className="project-card" ref={ref} style={style}>
             {props.featured && (
                 <span className="featured-label">
                     Featured Project
